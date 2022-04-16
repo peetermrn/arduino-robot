@@ -13,6 +13,10 @@ class Robot {
     int leftWheelPin = 1;
     int rightWheelPin = 2;
     int laserPin = 3;
+
+    //set wheel output variables
+    float leftWheelOutput = 0;
+    float rightWheelOutput = 0;
     
     void setUp(){
       //set connections for wheels, lasers etc.
@@ -21,11 +25,17 @@ class Robot {
     };
     
     float setLeftSpeed(float speed){
-          leftSpeed = speed;
+      if (speed < 100 && speed > -100){
+        leftSpeed = speed;
+        leftWheelPin = (5 / 100) * speed; // 5 is the max output
+      }
     };
     
     float setRightSpeed(float speed){
-          rightSpeed = speed;
+      if (speed < 100 && speed > -100){
+        rightSpeed = speed;
+        rightWheelOutput = (5 / 100) * speed; // 5 is the max output
+      }
     };
 
     void sense (){
@@ -47,9 +57,9 @@ class Robot {
 
     void act (){
       // set voltage for left wheel
-      // analogWrite(_, _);
+      analogWrite(leftWheelPin, leftWheelOutput);
       // set voltage for right wheel
-      // analogWrite(_, _);
+      analogWrite(rightWheelPin, rightWheelOutput);
     };
 
 
