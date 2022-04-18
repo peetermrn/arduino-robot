@@ -5,6 +5,7 @@ class Robot {
     float x = 0;
     float y = 0;
     String state; // for example scan, drive, finish
+    String mode; // blueTooth, code
     float leftSpeed = 0;
     float rightSpeed = 0;
     float laser = 0;
@@ -24,14 +25,14 @@ class Robot {
       pinMode(rightWheelPin, OUTPUT);
     };
     
-    float setLeftSpeed(float speed){
+    void setLeftSpeed(float speed){
       if (speed < 100 && speed > -100){
         leftSpeed = speed;
         leftWheelPin = (5 / 100) * speed; // 5 is the max output
       }
     };
     
-    float setRightSpeed(float speed){
+    void setRightSpeed(float speed){
       if (speed < 100 && speed > -100){
         rightSpeed = speed;
         rightWheelOutput = (5 / 100) * speed; // 5 is the max output
@@ -50,7 +51,8 @@ class Robot {
         setRightSpeed(10)
       } else {
         setLeftSpeed(0)
-        setRightSpeed(0)  
+        setRightSpeed(0)
+        state = "finished"  
       }
       */
     };
