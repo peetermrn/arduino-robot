@@ -1,17 +1,18 @@
 #include "robot.h"
+#include "SelfDrivingRobot.cpp"
 
-Robot robot;
-  
+SelfDrivingRobot robotBrain;
+
 void setup() {
 
-  robot.setUp();
 
 }
 
 void loop() {
   // robot logic SPA
-  robot.sense();
-  robot.plan();
-  robot.act();
+  robotBrain.sense();
+  robotBrain.plan();
+  robotBrain.act();
   delay(50);
+
 }
