@@ -4,8 +4,6 @@
 SelfDrivingRobot robotBrain;
 
 void setup() {
-
-
 }
 
 void loop() {
@@ -14,5 +12,4 @@ void loop() {
   robotBrain.plan();
   robotBrain.act();
   delay(50);
-
 }
